@@ -36,7 +36,7 @@ curl http://127.0.0.1:8000/api/v1/users
 
 Get user by ID
 ```code
-curl http://127.0.0.1:8000/api/v1/users/1
+curl http://127.0.0.1:8000/api/v1/users/3
 ```
 Create user
 ```code
@@ -45,13 +45,20 @@ curl -X POST http://127.0.0.1:8000/api/v1/users \
   -H "Accept: application/json" \
   -d '{"name":"John Doe","email":"john@example.com","password":"secret123"}'
 ```
+Update user
+```code
+curl -X PUT http://127.0.0.1:8000/api/v1/users/3 \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -d '{"name":"John Updated","email":"john.updated@example.com"}'
+```
 Delete user by id
 ```code
-curl -X DELETE http://127.0.0.1:8000/api/v1/users/1 \
+curl -X DELETE http://127.0.0.1:8000/api/v1/users/3 \
   -H "Accept: application/json"
 ```
 List users by status (0 or 1)
-```code
+```json
 curl -X POST http://127.0.0.1:8000/api/v1/user-list \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
