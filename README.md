@@ -58,7 +58,7 @@ curl -X DELETE http://127.0.0.1:8000/api/v1/users/3 \
   -H "Accept: application/json"
 ```
 List users by status (0 or 1)
-```json
+```code
 curl -X POST http://127.0.0.1:8000/api/v1/user-list \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
