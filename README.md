@@ -27,33 +27,38 @@ PKG_API_IP=api/v1
 
 Therefore, the API base URL is `http://127.0.0.1:8000/api/v1`.
 
-## Test with curl in postman
+# Test with curl in postman
 
-# Get all users
+Get all users
 ```code
 curl http://127.0.0.1:8000/api/v1/users
 ```
-# Get user by ID
-curl http://127.0.0.1:8000/api/v1/users/1
 
-# Create user
+Get user by ID
+```code
+curl http://127.0.0.1:8000/api/v1/users/1
+```
+Create user
+```code
 curl -X POST http://127.0.0.1:8000/api/v1/users \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"name":"John Doe","email":"john@example.com","password":"secret123"}'
-
-# Delete user
+```
+Delete user by id
+```code
 curl -X DELETE http://127.0.0.1:8000/api/v1/users/1 \
   -H "Accept: application/json"
-
-# List users by status (0 or 1)
+```
+List users by status (0 or 1)
+```code
 curl -X POST http://127.0.0.1:8000/api/v1/user-list \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"status":1}'
 ```
 
-## Available endpoints
+# Available endpoints
 
 | Method | Endpoint | Purpose |
 | --- | --- | --- |
@@ -64,7 +69,7 @@ curl -X POST http://127.0.0.1:8000/api/v1/user-list \
 | DELETE | `/api/v1/users/{id}` | Delete a user |
 | POST | `/api/v1/user-list` | Filter users by status |
 
-## CSRF token mismatch fix
+# CSRF token mismatch fix
 
 These endpoints are registered in `routes/web.php`. Web routes normally require
 a CSRF token for POST, PUT, PATCH, and DELETE requests. Command-line API requests
@@ -96,7 +101,7 @@ php artisan optimize:clear
 Do not disable CSRF validation for normal browser forms. The exception above is
 limited to URLs beginning with `/api/`.
 
-## Troubleshooting
+# Troubleshooting
 
 - **Connection refused:** Start the server with `php artisan serve`.
 - **404 Not Found:** Check `PKG_API_IP=api/v1` in `.env` and run `php artisan optimize:clear`.
