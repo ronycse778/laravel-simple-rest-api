@@ -19,11 +19,6 @@ The default application URL is:
 ```text
 http://127.0.0.1:8000
 ```
-
-```code
-curl http://127.0.0.1:8000/api/v1/users
-```
-
 The API prefix is configured in `.env`:
 
 ```dotenv
@@ -34,25 +29,24 @@ Therefore, the API base URL is `http://127.0.0.1:8000/api/v1`.
 
 ## Test with curl in postman
 
-Bellow are sample curl, can be used in postman.
-
-## Get all users
+# Get all users
+```code
 curl http://127.0.0.1:8000/api/v1/users
-
-## Get user by ID
+```
+# Get user by ID
 curl http://127.0.0.1:8000/api/v1/users/1
 
-## Create user
+# Create user
 curl -X POST http://127.0.0.1:8000/api/v1/users \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"name":"John Doe","email":"john@example.com","password":"secret123"}'
 
-## Delete user
+# Delete user
 curl -X DELETE http://127.0.0.1:8000/api/v1/users/1 \
   -H "Accept: application/json"
 
-## List users by status (0 or 1)
+# List users by status (0 or 1)
 curl -X POST http://127.0.0.1:8000/api/v1/user-list \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
