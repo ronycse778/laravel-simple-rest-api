@@ -7,8 +7,10 @@ Unzip env.zip file and vendor.zip file.<br>
 Create database named "laravel_api".<br>
 Default user: root, Pass: ""<br>
 Import sql file from Data.Source folder into this db.<br><br>
-Serve the project.<br>
-<code>php artisan serve</code><br><br>
+Serve the project.
+```text
+php artisan serve
+```
 A postman snapshot of simple api request & response shown in Data.Source folder.
 
 
@@ -16,6 +18,10 @@ The default application URL is:
 
 ```text
 http://127.0.0.1:8000
+```
+
+```code
+curl http://127.0.0.1:8000/api/v1/users
 ```
 
 The API prefix is configured in `.env`:
@@ -102,3 +108,5 @@ limited to URLs beginning with `/api/`.
 - **404 Not Found:** Check `PKG_API_IP=api/v1` in `.env` and run `php artisan optimize:clear`.
 - **422 Unprocessable Content:** Check required fields and use a unique, valid email.
 - **User not found:** Replace `1` in the URL with an existing user ID.
+
+
